@@ -15,16 +15,11 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Main page css-->
-        <link href="css/index.css" rel="stylesheet">
-        
-        <script src="javascripts/angular.min.js"></script>
-        <script src="javascripts/jquery-1.11.1.min.js"></script>
-        <script src="javascripts/ui-bootstrap-tpls-0.11.0.min.js"></script>
-        <script src="javascripts/index.js"></script>
+        <link href="css/index.css" rel="stylesheet">        
         
     </head>
 
-    <body ng-controller="NavController as nav">
+    <body ng-app='index' ng-controller="NavController as nav">
         <!-- Fixed navbar -->
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
@@ -49,7 +44,7 @@
 
         <!-- Begin page content -->
         <div class="container">
-            <surveyList ng-show="nav.isSelected(2)"></surveyList>
+            <survey-list ng-show="nav.isSelected(2)"></survey-list>
             <login ng-show="nav.isSelected(1)"></login>
         </div>
         
@@ -61,4 +56,13 @@
         </div>
         
     </body>
+    
+    <script src="javascripts/angular.min.js"></script>
+    <script src="javascripts/jquery-1.11.1.min.js"></script>
+    <script src="javascripts/ui-bootstrap-tpls-0.11.0.min.js"></script>
+    <script src="javascripts/index.js"></script>
+    <script src="controllers/navcontroller.js"></script>
+    <script src="controllers/logincontroller.js"></script>
+    <script src="directives/loginDirective.js"></script>
+    <script src="directives/surveyListDirective.js"></script>
 </html>
