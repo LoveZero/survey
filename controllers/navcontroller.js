@@ -1,10 +1,16 @@
-index.controller('NavController', function() {
-    this.tab = 1; // always go to 1st tab
-    
-    this.selectNav = function(setTab) {
-        this.tab = setTab;
+index.controller('NavController', ['$rootScope', function($rootScope) {
+
+    $rootScope.init = function () {
+        $rootScope.tab = 1
     }
-    this.isSelected = function(checkTab){
-        return this.tab === checkTab;
+     
+    $rootScope.selectNav = function(setTab) {
+        $rootScope.tab = setTab;
+    }
+    
+    $rootScope.isSelected = function(checkTab){
+        return $rootScope.tab === checkTab;
     };
-});
+    
+    $rootScope.init();
+}]);

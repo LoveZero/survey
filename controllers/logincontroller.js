@@ -1,5 +1,5 @@
-index.controller( 'LoginController', ['$scope', '$filter', '$http', '$modal', function($scope, $filter, $http, $modal){
-    var SERVICE = 'services/';
+index.controller( 'LoginController', ['$rootScope', '$scope', '$filter', '$http', '$modal', function($rootScope, $scope, $filter, $http, $modal) {
+    
     $scope.init = function () {
         $scope.login = {};
         $scope.login.email = '';
@@ -8,16 +8,17 @@ index.controller( 'LoginController', ['$scope', '$filter', '$http', '$modal', fu
     
     $scope.loginSubmit = function () {
         $http.post (SERVICE + 'login.php', JSON.stringify($scope.login))
-                .success ( function (data) {
-                    //return success
-                }).
-                error(function(data) {
-                    //return error in login
-                });
+        .success ( function (data) {
+            $rootScope.userID = data.id;
+            $rootScope.userName = data.name;
+            $rootScope.userType = data.type;
+            $rootScope.selectNav(2);
+            $rootScope.loggedIn = true;
+        })
+        .error( function (data) {
+            //return error in login
+        });
     }
-    
-
-
     
     $scope.init();
 }]);
