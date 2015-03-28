@@ -1,0 +1,4 @@
+domain name : http://surveyproject.asia.tmp13.mschosting.com/
+webpanel name : http://110.4.46.49/ 
+username : surveypr
+password : BZyyr3g204
