@@ -4,8 +4,22 @@ var SERVICE = 'services/';
 
 var index = angular.module('index', ['ui.bootstrap'])
 .run( function ($rootScope) {
-    $rootScope.userID = '';
-    $rootScope.userName = '';
-    $rootScope.userType = '';
-    $rootScope.loggedIn = false;
+
+    $rootScope.init = function () {
+        $rootScope.userID = '';
+        $rootScope.userName = '';
+        $rootScope.userType = '';
+        $rootScope.loggedIn = false;
+        $rootScope.tab = 1;
+    }
+     
+    $rootScope.selectNav = function(setTab) {
+        $rootScope.tab = setTab;
+    }
+    
+    $rootScope.isSelected = function(checkTab){
+        return $rootScope.tab === checkTab;
+    };
+
+    $rootScope.init();
 });
