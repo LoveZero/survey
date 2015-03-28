@@ -19,7 +19,14 @@
     index.directive('surveyList', function() {
         return {
             restrict: 'E',
-            templateUrl: 'survey-list.html'
+            templateUrl: 'templates/survey-list.html'
+        };
+    });
+    
+    index.directive('login', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/login.html'
         };
     });
 })();
