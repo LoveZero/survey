@@ -29,4 +29,18 @@
             templateUrl: 'templates/login.html'
         };
     });
+    
+    //controller
+    index.controller( 'LoginController', ['$scope', '$filter', '$http', '$modal', function($scope, $filter, $http, $modal){
+        $scope.init = function () {
+            $scope.email = '';
+            $scope.password = '';
+        }
+        
+        $scope.loginSubmit = function () {
+            //validate email and password at db
+        }
+        
+        $scope.init();
+    }]);
 })();
