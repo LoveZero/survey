@@ -2,6 +2,7 @@
 
 (function() {
    //controller
+    var SERVICE = 'services/';
     var index = angular.module('index', ['ui.bootstrap']);
     
     index.controller('NavController', function() {
@@ -33,12 +34,19 @@
     //controller
     index.controller( 'LoginController', ['$scope', '$filter', '$http', '$modal', function($scope, $filter, $http, $modal){
         $scope.init = function () {
-            $scope.email = '';
-            $scope.password = '';
+            $scope.login = {};
+            $scope.login.email = '';
+            $scope.login.password = '';
         }
         
         $scope.loginSubmit = function () {
-            //validate email and password at db
+            $http.post (SERVICE + 'login.php', JSON.stringify($scope.login))
+                    .success ( function (data) {
+                        //return success
+                    }).
+                    error(function(data) {
+                        //return error in login
+                    });
         }
         
         $scope.init();

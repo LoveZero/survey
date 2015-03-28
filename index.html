@@ -40,8 +40,8 @@
                 
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li ng-class="{ active: nav.isSelected(1)}"><a href ng-click="nav.selectNav(1)">Survey</a></li>
-                        <li ng-class="{ active: nav.isSelected(2)}"><a href ng-click="nav.selectNav(2)">Login</a></li>
+                        <li ng-class="{ active: nav.isSelected(2)}"><a href ng-click="nav.selectNav(2)">Survey</a></li>
+                        <li ng-class="{ active: nav.isSelected(1)}"><a href ng-click="nav.selectNav(1)">Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -49,8 +49,8 @@
 
         <!-- Begin page content -->
         <div class="container">
-            <surveyList ng-show="nav.isSelected(1)"></surveyList>
-            <login ng-show="nav.isSelected(2)"></login>
+            <surveyList ng-show="nav.isSelected(2)"></surveyList>
+            <login ng-show="nav.isSelected(1)"></login>
         </div>
         
         <!-- End page content -->
