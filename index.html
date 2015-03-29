@@ -36,7 +36,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li ng-class="{ active: isSelected(2)}"><a href ng-click="selectNav(2)">Survey</a></li>
-                        <li ng-class="{ active: isSelected(1)}" ng-hide="loggedIn"><a href ng-click="selectNav(1)">Login</a></li>
+                        <li ng-class="{ active: isSelected(1) || isSelected(3)}" ng-hide="loggedIn"><a href ng-click="selectNav(1)">Login</a></li>
                         <li ng-class="{ active: isSelected(0)}" ng-show="loggedIn"><a href ng-click="selectNav(0); init()">Logout</a></li>
                     </ul>
                 </div>
@@ -47,6 +47,7 @@
         <div class="container">
             <survey-list ng-show="isSelected(2)"></survey-list>
             <login ng-show="isSelected(1)" ></login>
+            <signup ng-show="isSelected(3)" ></signup>
         </div>
         
         <!-- End page content -->
@@ -62,8 +63,10 @@
     <script src="javascripts/jquery-1.11.1.min.js"></script>
     <script src="javascripts/ui-bootstrap-tpls-0.11.0.min.js"></script>
     <script src="javascripts/index.js"></script>
-    <script src="controllers/navcontroller.js"></script>
     <script src="controllers/logincontroller.js"></script>
+    <script src="controllers/signupcontroller.js"></script>
+    <script src="controllers/surveylistcontroller.js"></script>
     <script src="directives/loginDirective.js"></script>
     <script src="directives/surveyListDirective.js"></script>
+    <script src="directives/signupDirective.js"></script>
 </html>
