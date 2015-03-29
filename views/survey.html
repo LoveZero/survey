@@ -1,0 +1,19 @@
+<div class="page-header" ng-controller="ListController as listCtrl">
+    <h3>Survey List</h3>
+    <h4>Welcome {{userName}}!</h4>
+    <p ng-show="userType">Here are the surveys you created.</p>
+    <p ng-hide="userType">Here are the surveys you can take.</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Date Created</th>
+            <th>Total Taken</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>

@@ -9,6 +9,4 @@ index.controller('ListController', ['$rootScope', '$scope', '$filter', '$http', 
             //return error in login
         });
     }
-    // how to call this when page load
-    $rootScope.$on('login', function(event,data) { /*$scope.getList($rootScope.userID);*/ alert($rootScope.userID); });
 }]);

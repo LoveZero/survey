@@ -1,4 +1,4 @@
-index.controller( 'LoginController', ['$rootScope', '$scope', '$filter', '$http', '$modal', function($rootScope, $scope, $filter, $http, $modal) {
+index.controller( 'LoginController', ['$rootScope', '$scope', '$filter', '$http', '$modal', '$location', function($rootScope, $scope, $filter, $http, $modal, $location) {
     
     $scope.init = function () {
         $scope.login = {};
@@ -14,7 +14,7 @@ index.controller( 'LoginController', ['$rootScope', '$scope', '$filter', '$http'
             $rootScope.userType = data.type;
             $rootScope.selectNav(2);
             $rootScope.loggedIn = true;
-            $rootScope.$emit('login', '');
+            $location.path( '/survey' );
         })
         .error( function (data) {
             //return error in login

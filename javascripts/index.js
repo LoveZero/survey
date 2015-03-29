@@ -2,7 +2,7 @@
 
 var SERVICE = 'services/';
 
-var index = angular.module('index', ['ui.bootstrap'])
+var index = angular.module('index', ['ui.bootstrap', 'ngRoute'])
 .run( function ($rootScope) {
 
     $rootScope.init = function () {
@@ -20,8 +20,16 @@ var index = angular.module('index', ['ui.bootstrap'])
     $rootScope.isSelected = function(checkTab){
         return $rootScope.tab === checkTab;
     };
-    
-    $rootScope.$broadcast('login', '');
 
     $rootScope.init();
-});
+}).config(['$routeProvider', function($routeProvider) {
+		$routeProvider.when('/', {
+			templateUrl: 'views/login.html'
+		}),		
+		$routeProvider.when('/survey', { 
+			templateUrl: 'views/survey.html'
+		});
+
+
+		
+}]);
