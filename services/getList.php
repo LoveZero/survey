@@ -23,7 +23,6 @@ $stmt = $mysqli->prepare("
 $stmt->bind_param('i', $user_id);
 $stmt->execute();
 mysqli_stmt_bind_result($stmt, $id, $title, $description, $response_number);
-mysqli_stmt_fetch($stmt);
 
 $result = array();
 

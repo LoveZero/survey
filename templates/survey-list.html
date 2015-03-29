@@ -8,12 +8,17 @@
             <tr>
             <th>Title</th>
             <th>Description</th>
-            <th>Date Created</th>
             <th>Total Taken</th>
             <th></th>
             </tr>
         </thead>
         <tbody>
+            <tr ng-repeat="sList in surveyList">
+            <th>{{sList.title}}</th>
+            <th>{{sList.description}}</th>
+            <th>{{sList.response_number}}</th>
+            <th></th>
+            </tr>
         </tbody>
     </table>
 </div>
