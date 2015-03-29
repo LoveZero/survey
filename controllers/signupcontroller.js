@@ -15,8 +15,10 @@ index.controller( 'SignUpController', ['$rootScope', '$scope', '$filter', '$http
             $rootScope.tab = 1;
         })
         .error( function (data, status) {
-            if (status == 400) {
+            if (status == 500) {
                 alert("This email has already been used.");
+            } else if (status == 400) {
+                alert("Please try again.");
             }
         });
     }
