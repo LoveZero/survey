@@ -8,7 +8,7 @@ var index = angular.module('index', ['ui.bootstrap'])
     $rootScope.init = function () {
         $rootScope.userID = '';
         $rootScope.userName = '';
-        $rootScope.userType = '';
+        $rootScope.userType = 0;
         $rootScope.loggedIn = false;
         $rootScope.tab = 1;
     }
