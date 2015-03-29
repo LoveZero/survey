@@ -20,6 +20,8 @@ var index = angular.module('index', ['ui.bootstrap'])
     $rootScope.isSelected = function(checkTab){
         return $rootScope.tab === checkTab;
     };
+    
+    $rootScope.$broadcast('login', '');
 
     $rootScope.init();
 });

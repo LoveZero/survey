@@ -14,6 +14,7 @@ index.controller( 'LoginController', ['$rootScope', '$scope', '$filter', '$http'
             $rootScope.userType = data.type;
             $rootScope.selectNav(2);
             $rootScope.loggedIn = true;
+            $rootScope.$emit('login', '');
         })
         .error( function (data) {
             //return error in login

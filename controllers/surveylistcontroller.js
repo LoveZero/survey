@@ -10,5 +10,5 @@ index.controller('ListController', ['$rootScope', '$scope', '$filter', '$http', 
         });
     }
     // how to call this when page load
-    $scope.getList($rootScope.userID);
+    $rootScope.$on('login', function(event,data) { /*$scope.getList($rootScope.userID);*/ alert($rootScope.userID); });
 }]);
