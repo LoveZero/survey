@@ -1,10 +1,14 @@
-index.controller('NavController', function() {
-    this.tab = 1; // always go to 1st tab
+index.controller('ListController', ['$rootScope', '$scope', '$filter', '$http', '$modal', function($rootScope, $scope, $filter, $http, $modal) {
     
-    this.selectNav = function(setTab) {
-        this.tab = setTab;
+    $scope.getList = function (userID) {
+        $http.get (SERVICE + 'getList.php?user=' + userID)
+        .success ( function (data) {
+
+        })
+        .error( function (data) {
+            //return error in login
+        });
     }
-    this.isSelected = function(checkTab){
-        return this.tab === checkTab;
-    };
-});
+    // how to call this when page load
+    $scope.getList($rootScope.userID);
+}]);
