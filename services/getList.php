@@ -1,10 +1,5 @@
 <?php
-$mysqli = new mysqli("localhost", "survey", "survey", "survey");
-
-// check connection
-if (mysqli_connect_errno()) {
-    exit();
-}
+include 'dbConnection.php';
 
 $user_id = $_GET["user"];
 

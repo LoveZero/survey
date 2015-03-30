@@ -1,12 +1,7 @@
 <?php
+include 'dbConnection.php';
 
-$mysqli = new mysqli("localhost", "survey", "survey", "survey");
 $id = 0;
-// check connection
-if (mysqli_connect_errno()) {
-    die('Connect Error (' . $mysqli->connect_errno . ') '
-            . $mysqli->connect_error);
-}
    
 $request_body = file_get_contents('php://input');
 $data = json_decode($request_body, true);
