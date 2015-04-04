@@ -1,0 +1,55 @@
+
+<div ng-controller = "NewSurveyController" class="newSurvey">
+    <h2>New Survey</h2>
+    
+    <form class="newForm" ng-submit="">
+        <input type="text" class="form-control" ng-model="form.title" />
+        <input type="text" class="form-control" placeholder="Form description" ng-model="form.description" />
+        <div class="newQuest" ng-repeat="question in form.questions">
+            <div class="col-sm-3 col-xs-12">Question Title</div>
+            <div class="col-sm-9 col-xs-12">
+                <input type="text" ng-model="question.name" />
+            </div>
+            <div class="col-sm-3 col-xs-12">Help Text</div>
+            <div class="col-sm-9 col-xs-12">
+                <input type="text" ng-model="question.subtext" />
+            </div>
+            <div class="col-sm-3 col-xs-12">Question Type</div>
+            <div class="col-sm-9 col-xs-12">
+                <select ng-init="question.qtype = options[0]" ng-model="question.qtype" ng-options="option as option for option in options">
+            </select>
+            </div>
+            
+            <div class="subType" ng-if="question.qtype=='Multiple Choice'" >
+                <div ng-repeat="sub in question.qsubtype">
+                    <input type="radio" disabled="true"> 
+                    <input class="subOptions" type="text" ng-model="sub.name"  placeholder="Untitled">
+                    <a href ng-click="removeOption($index, question.qsubtype)">X</a>
+                </div>
+                <a href ng-click="addOption(question.qsubtype)">Add More</a>
+            </div>
+            
+            <div class="subType" ng-if="question.qtype=='Checkboxes'">
+                <div ng-repeat="sub in question.qsubtype">
+                    <input class="subOptions" type="text" ng-model="sub.name" placeholder="Untitled">
+                    <input type="checkbox" disabled="true">
+                    <a href ng-click="removeOption($index, question.qsubtype)">X</a>
+                </div>
+                <a href ng-click="addOption(question.qsubtype)">Add More</a>
+            </div>
+            
+            <div class="subType" ng-if="question.qtype=='Text'">
+                <input type="text" ng-model="sub.name" placeholder="Untitled" disabled="true">
+            </div>
+            <div class="btnPart">
+                <button class="btnSurvey" ng-click="removeQuest($index)">Remove</button>
+            </div>
+        </div>
+        <div class="btnPart">
+            <button class="btnSurvey" ng-click="addQuest()">Add Item</button>
+            <input class="btnSurvey" type="submit" value="Done" />
+        </div>
+    </form>
+
+</div>
+

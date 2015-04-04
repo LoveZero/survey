@@ -1,4 +1,4 @@
-index.controller('ListController', ['$rootScope', '$scope', '$filter', '$http', '$modal', function($rootScope, $scope, $filter, $http, $modal) {
+index.controller('ListController', ['$rootScope', '$scope', '$filter', '$http', '$modal', '$location', function($rootScope, $scope, $filter, $http, $modal, $location) {
     
     $scope.getList = function (userID) {
         $http.get (SERVICE + 'getList.php?user=' + userID)
@@ -12,6 +12,10 @@ index.controller('ListController', ['$rootScope', '$scope', '$filter', '$http', 
     
     $scope.init = function () {
         $scope.getList($rootScope.userID);
+    }
+    
+    $scope.newSurvey = function () {
+        $location.path( '/newsurvey' );
     }
     
     $scope.init();

@@ -3,7 +3,7 @@
 var SERVICE = 'services/';
 
 var index = angular.module('index', ['ui.bootstrap', 'ngRoute'])
-.run( function ($rootScope) {
+.run( function ($rootScope, $location) {
 
     $rootScope.init = function () {
         $rootScope.userID = '';
@@ -11,6 +11,7 @@ var index = angular.module('index', ['ui.bootstrap', 'ngRoute'])
         $rootScope.userType = 0;
         $rootScope.loggedIn = false;
         $rootScope.tab = 1;
+        $location.path( '/' );
     }
      
     $rootScope.selectNav = function(setTab) {
@@ -28,8 +29,9 @@ var index = angular.module('index', ['ui.bootstrap', 'ngRoute'])
 		}),		
 		$routeProvider.when('/survey', { 
 			templateUrl: 'views/survey.html'
+		}),		
+		$routeProvider.when('/newsurvey', { 
+			templateUrl: 'views/newSurvey.html'
 		});
-
-
-		
+	
 }]);

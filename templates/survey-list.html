@@ -3,6 +3,9 @@
     <h4>Welcome {{userName}}!</h4>
     <p ng-show="userType">Here are the surveys you created.</p>
     <p ng-hide="userType">Here are the surveys you can take.</p>
+    <div class = "btnNewSurvey">
+        <input type="button" class="btn btn-primary" ng-show = "userType" ng-click="newSurvey();" value = "New Survey" />
+    </div>
     <table class="table table-striped">
         <thead>
             <tr>

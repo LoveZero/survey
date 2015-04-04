@@ -37,3 +37,107 @@ body > .container {
 code {
   font-size: 80%;
 }
+
+.btnNewSurvey {
+    position: relative;
+    height: 40px;
+    max-width: 1000px;
+}
+
+.btnNewSurvey input {
+    position: absolute;
+    right: 0px;
+}
+
+.newSurvey {
+    background-color: #FFF;
+    max-width: 1000px
+}
+
+.newForm {
+    margin-left: auto;
+    margin-top: 10px;
+    border: 1px solid #D1D1D1;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+}
+
+.newForm .form-control {
+    width: 95%;
+    border: 1px solid #FFF;
+    box-shadow: none;
+}
+
+.newForm .form-control:hover {
+    border: 1px solid #CCC;
+}
+
+.newQuest{
+    position: relative;
+    margin-top: 10px;
+    background-color: #FFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #D1D1D1;
+    padding: 10px;
+}
+
+.newQuest input[type=text] {
+    width: 100%;
+}
+
+.newQuest .btnPart .btnSurvey{
+    float: right;
+}
+
+.btnPart {
+    height: 30px;
+    margin: 15px 0px 15px 15px;
+}
+
+.subType {
+    margin-left: 27%;
+}
+
+.subType a{
+    color: red;
+    outline: none;
+    text-decoration: none;
+}
+
+.newQuest input, .newQuest select, .newQuest label {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.subOptions {
+    width: 185px !important;
+}
+
+.btnSurvey {
+    border-radius: 2px;
+    cursor: default;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    margin-right: 16px;
+    height: 27px;
+    line-height: 27px;
+    min-width: 54px;
+    outline: 0px none;
+    padding: 0px 8px;
+    box-shadow: none;
+    background-color: #4D90FE;
+    background-image: -moz-linear-gradient(center top , #4D90FE, #4787ED);
+    border: 1px solid #3079ED;
+    color: #FFF;
+}
+
+.btnSurvey:hover {
+    background-color: #4D9FFF;
+}
+
+@media (max-width:767px){
+    .subType {
+        margin-left: 15px;
+    }
+}
