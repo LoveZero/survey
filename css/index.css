@@ -84,7 +84,7 @@ code {
     width: 100%;
 }
 
-.newQuest .btnPart .btnSurvey{
+.btnPart .btnSurvey:last-child {
     float: right;
 }
 
@@ -134,6 +134,7 @@ code {
 
 .btnSurvey:hover {
     background-color: #4D9FFF;
+    cursor: pointer;
 }
 
 @media (max-width:767px){

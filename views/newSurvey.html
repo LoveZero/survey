@@ -2,7 +2,7 @@
 <div ng-controller = "NewSurveyController" class="newSurvey">
     <h2>New Survey</h2>
     
-    <form class="newForm" ng-submit="">
+    <form class="newForm">
         <input type="text" class="form-control" ng-model="form.title" />
         <input type="text" class="form-control" placeholder="Form description" ng-model="form.description" />
         <div class="newQuest" ng-repeat="question in form.questions">
@@ -47,7 +47,8 @@
         </div>
         <div class="btnPart">
             <button class="btnSurvey" ng-click="addQuest()">Add Item</button>
-            <input class="btnSurvey" type="submit" value="Done" />
+            <button class="btnSurvey" ng-click="createNewSurvey()">Done</button>
+            <button class="btnSurvey" ng-click="cancel()">Cancel</button>
         </div>
     </form>
 
