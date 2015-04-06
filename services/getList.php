@@ -1,9 +1,13 @@
 <?php
 include 'dbConnection.php';
 
-$user_id = $_GET["user"];
+if (isset($_GET['user'])) {
+	$user_id = $_GET["user"];
+} else {
+	$user_id = 0;
+}
 
-$stmt = $mysqli->prepare("
+$stmt = "
     SELECT 
         id,
         title,
@@ -11,11 +15,19 @@ $stmt = $mysqli->prepare("
         response_number
     FROM 
         survey 
-    WHERE 
-        user_id = ?;
-");
+";
 
-$stmt->bind_param('i', $user_id);
+if ($user_id > 0) {
+	$stmt .= 
+	"WHERE 
+	user_id = ?;";
+}
+$stmt = $mysqli->prepare($stmt);
+
+if ($user_id > 0) {
+	$stmt->bind_param('i', $user_id);
+}
+
 $stmt->execute();
 mysqli_stmt_bind_result($stmt, $id, $title, $description, $response_number);
 

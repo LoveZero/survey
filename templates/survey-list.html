@@ -20,7 +20,7 @@
             <th>{{sList.title}}</th>
             <th>{{sList.description}}</th>
             <th>{{sList.response_number}}</th>
-            <th></th>
+            <th><input ng-hide="userType" type="button" class="btn btn-primary" ng-click="takeSurvey(sList.id);" value = "Take Survey" /></th>
             </tr>
         </tbody>
     </table>

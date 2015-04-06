@@ -23,6 +23,7 @@ var index = angular.module('index', ['ui.bootstrap', 'ngRoute'])
     };
 
     $rootScope.init();
+	
 }).config(['$routeProvider', function($routeProvider) {
 		$routeProvider.when('/', {
 			templateUrl: 'views/login.html'
@@ -32,6 +33,9 @@ var index = angular.module('index', ['ui.bootstrap', 'ngRoute'])
 		}),		
 		$routeProvider.when('/newsurvey', { 
 			templateUrl: 'views/newSurvey.html'
+		});
+		$routeProvider.when('/takesurvey', { 
+			templateUrl: 'views/takesurvey.html'
 		});
 	
 }]);
