@@ -27,6 +27,10 @@ index.controller('ListController', ['$rootScope', '$scope', '$filter', '$http', 
 		console.log($location.search());
         $location.path( '/takesurvey' );
     }
+
+    $scope.getSummary = function (id) {
+        $location.path('/summary').search('id', id);
+    }
     
     $scope.init();
 }]);

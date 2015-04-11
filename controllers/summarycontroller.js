@@ -1,0 +1,37 @@
+index.controller('SummaryController', ['$rootScope', '$scope', '$filter', '$http', '$modal', '$location', function($rootScope, $scope, $filter, $http, $modal, $location) {
+    $scope.surveyId = $location.search()['id'];
+    $scope.myData = [];
+    $scope.gridOptions = { 
+        data: 'myData',
+        headerRowHeight: 55,
+        showGroupPanel: true,
+        showFooter: true,
+        enableColumnResize: true,
+        showColumnMenu: true,
+        showFilter: true      
+    };
+    
+    $scope.fetchData = function() {
+        $http.get (SERVICE + 'getSummary.php?surveyID=' + $scope.surveyId)
+        .success ( function (data) {
+            var myObject = {};
+            
+            angular.forEach(data.answers, function(answer, key) {
+                myObject = {};
+                angular.forEach(data.questions, function(question, index) { 
+                    myObject[question] = answer[index];
+                });
+                $scope.myData.push(myObject);
+            });
+        })
+        .error( function (data) {
+        });     
+    }
+    
+    $scope.back = function() {
+        $location.path( '/survey' );
+    }
+    
+    $scope.fetchData();
+    
+}]);

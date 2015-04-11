@@ -16,7 +16,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="sList in surveyList">
+            <tr ng-repeat="sList in surveyList" ng-click="getSummary(sList.id)">
             <th>{{sList.title}}</th>
             <th>{{sList.description}}</th>
             <th>{{sList.response_number}}</th>
