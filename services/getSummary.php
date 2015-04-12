@@ -22,13 +22,7 @@ if (strlen($question_id) > 0) {
 }
 
 $select_answer_stmt = "SELECT description FROM answer WHERE question_id IN ($question_id)";
-/* echo $select_answer_stmt;
-return true;
-/* $result = $mysqli->query($select_answer_stmt);
 
-foreach ($result as $value) {
-    $output['answer'][] = $value;
-} */
 if ($result = mysqli_query($mysqli, $select_answer_stmt)) {
     $index = 0;
     $cur_index = 0;

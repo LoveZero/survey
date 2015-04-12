@@ -16,13 +16,20 @@ index.controller('SummaryController', ['$rootScope', '$scope', '$filter', '$http
         .success ( function (data) {
             var myObject = {};
             
-            angular.forEach(data.answers, function(answer, key) {
-                myObject = {};
+            if (data.answers.length > 0) {
+                angular.forEach(data.answers, function(answer, key) {
+                    myObject = {};
+                    angular.forEach(data.questions, function(question, index) { 
+                        myObject[question] = answer[index];
+                    });
+                    $scope.myData.push(myObject);
+                });
+            } else {
                 angular.forEach(data.questions, function(question, index) { 
-                    myObject[question] = answer[index];
+                    myObject[question] = "-";
                 });
                 $scope.myData.push(myObject);
-            });
+            }
         })
         .error( function (data) {
         });     

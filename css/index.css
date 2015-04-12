@@ -168,7 +168,8 @@ code {
 .ngCellText {
   height: auto !important;
   white-space: normal;
-  overflow:visible;
+  overflow: visible;
+  text-align: center;
 }
 
 .ngColMenu {
@@ -186,6 +187,7 @@ code {
     height: 55px !important;
     overflow-y: visible;
     overflow-x: hidden;
+    text-align: center;
 }
 
 .ngHeaderGrip, .ngVerticalBarVisible {
