@@ -2,24 +2,48 @@
 
 var SERVICE = 'services/';
 
-var index = angular.module('index', ['ui.bootstrap', 'ngRoute', 'ngGrid'])
-.run( function ($rootScope, $location) {
+var index = angular.module('index', ['ui.bootstrap', 'ngRoute', 'ngGrid', 'ngCookies'])
+.run( function ($rootScope, $location, $cookies, $cookieStore) {
 
     $rootScope.init = function () {
-        $rootScope.userID = '';
-        $rootScope.userName = '';
-        $rootScope.userType = 0;
-        $rootScope.loggedIn = false;
-        $rootScope.tab = 1;
-        $location.path( '/' );
+
+        if ($cookieStore.get('user') !== undefined) {
+            $rootScope.cookies = $cookieStore.get('user');
+            if ($rootScope.cookies.loggedIn !== undefined) {
+                $rootScope.tab = $rootScope.cookies.selectedTab;
+                $rootScope.userID = $rootScope.cookies.userID;
+                $rootScope.userName = $rootScope.cookies.userName;
+                $rootScope.userType = $rootScope.cookies.userType;
+                $rootScope.loggedIn = $rootScope.cookies.loggedIn;
+                
+                $location.path( '/survey' );
+            } else {
+                $rootScope.userID = '';
+                $rootScope.userName = '';
+                $rootScope.userType = 0;
+                $rootScope.loggedIn = false;
+                $rootScope.tab = 1;
+                
+                $location.path( '/' );
+            }
+        }
+    
     }
      
     $rootScope.selectNav = function(setTab) {
         $rootScope.tab = setTab;
+        $cookieStore.put("user", {
+            selectedTab: $rootScope.tab,
+        });
+/*         $cookies.selectedTab = $rootScope.tab; */
     }
     
     $rootScope.isSelected = function(checkTab){
         return $rootScope.tab === checkTab;
+    };
+    
+    $rootScope.clearCookies = function(){
+        $cookies.user = undefined;
     };
 
     $rootScope.init();
