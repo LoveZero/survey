@@ -198,6 +198,13 @@ code {
     width: 101% !important;
 }
 
+.table tbody tr:hover {
+    cursor: pointer;
+    color: rgb(150, 150, 150);
+    border-left: 2px rgb(150, 150, 150) solid;
+    border-right: 2px rgb(150, 150, 150) solid;
+}
+
 @media (max-width:767px){
     .subType {
         margin-left: 15px;

@@ -28,10 +28,6 @@ index.controller('NewSurveyController', ['$rootScope', '$scope', '$filter', '$ht
         $scope.form.questions.splice(index,1);
     }
     
-    $scope.cancel = function(){
-        $location.path( '/survey' );
-    }
-    
     $scope.createNewSurvey = function(){
         $http({
             url: SERVICE + 'newSurvey.php',

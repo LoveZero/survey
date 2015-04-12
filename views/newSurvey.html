@@ -1,7 +1,9 @@
 
 <div ng-controller = "NewSurveyController" class="newSurvey">
     <h2>New Survey</h2>
-    
+    <div style="position:relative; height:35px;">
+        <button class="btnSurvey" ng-click="toSurveyList()" style="position:absolute; right:-15px;">Survey List</button>
+    </div>
     <form class="newForm">
         <input type="text" class="form-control" ng-model="form.title" />
         <input type="text" class="form-control" placeholder="Form description" ng-model="form.description" />
@@ -48,7 +50,7 @@
         <div class="btnPart">
             <button class="btnSurvey" ng-click="addQuest()">Add Item</button>
             <button class="btnSurvey" ng-click="createNewSurvey()">Done</button>
-            <button class="btnSurvey" ng-click="cancel()">Cancel</button>
+            <button class="btnSurvey" ng-click="toSurveyList()">Cancel</button>
         </div>
     </form>
 

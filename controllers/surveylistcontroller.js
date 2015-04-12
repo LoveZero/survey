@@ -29,7 +29,7 @@ index.controller('ListController', ['$rootScope', '$scope', '$filter', '$http', 
     }
 
     $scope.getSummary = function (id) {
-        $location.path('/summary').search('id', id);
+        $location.path('/summary').search('sid', id);
     }
     
     $scope.init();

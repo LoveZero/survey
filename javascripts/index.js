@@ -45,6 +45,10 @@ var index = angular.module('index', ['ui.bootstrap', 'ngRoute', 'ngGrid', 'ngCoo
     $rootScope.clearCookies = function(){
         $cookies.user = undefined;
     };
+    
+    $rootScope.toSurveyList = function() {
+        $location.path( '/survey' );
+    }
 
     $rootScope.init();
 }).config(['$routeProvider', function($routeProvider) {

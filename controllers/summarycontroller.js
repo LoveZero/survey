@@ -1,5 +1,5 @@
 index.controller('SummaryController', ['$rootScope', '$scope', '$filter', '$http', '$modal', '$location', function($rootScope, $scope, $filter, $http, $modal, $location) {
-    $scope.surveyId = $location.search()['id'];
+    $scope.surveyId = $location.search()['sid'];
     $scope.myData = [];
     $scope.gridOptions = { 
         data: 'myData',
@@ -33,10 +33,6 @@ index.controller('SummaryController', ['$rootScope', '$scope', '$filter', '$http
         })
         .error( function (data) {
         });     
-    }
-    
-    $scope.back = function() {
-        $location.path( '/survey' );
     }
     
     $scope.fetchData();
