@@ -17,7 +17,9 @@ index.controller('NewSurveyController', ['$rootScope', '$scope', '$filter', '$ht
     }
     
     $scope.removeOption = function(index, array){
-        array.splice(index, 1);
+        if (array.length > 1) {
+            array.splice(index, 1);
+        }
     }
     
     $scope.addQuest = function(){
@@ -29,17 +31,21 @@ index.controller('NewSurveyController', ['$rootScope', '$scope', '$filter', '$ht
     }
     
     $scope.createNewSurvey = function(){
-        $http({
-            url: SERVICE + 'newSurvey.php',
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            data: $scope.form
-        }).success ( function (data) {
-            alert(data);
-            $location.path( '/survey' );
-        }).error( function (data) {
-            alert("Failed to create new survey. Please try again.");
-        });
+        if ($scope.form.questions.length > 0) {
+            $http({
+                url: SERVICE + 'newSurvey.php',
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                data: $scope.form
+            }).success ( function (data) {
+                alert(data);
+                $location.path( '/survey' );
+            }).error( function (data) {
+                alert("Failed to create new survey. Please try again.");
+            });
+        } else {
+            alert("Sorry, you unable to create survey without any questions.");
+        }
     }
 
 }]);
