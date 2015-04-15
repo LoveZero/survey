@@ -27,6 +27,14 @@ index.controller('ListController', ['$rootScope', '$scope', '$filter', '$http', 
 		console.log($location.search());
         $location.path( '/takesurvey' );
     }
+	
+	$scope.clickSurvey = function (id, userType) {
+        if (userType) {
+			$scope.getSummary(id);
+		} else {
+			$scope.takeSurvey(id);
+		}
+    }
 
     $scope.getSummary = function (id) {
         $location.path('/summary').search('sid', id);

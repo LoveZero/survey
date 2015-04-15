@@ -12,15 +12,13 @@
             <th>Title</th>
             <th>Description</th>
             <th>Total Taken</th>
-            <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="sList in surveyList" ng-click="getSummary(sList.id)">
+            <tr ng-repeat="sList in surveyList" ng-click="clickSurvey(sList.id, userType)">
             <th>{{sList.title}}</th>
             <th>{{sList.description}}</th>
             <th>{{sList.response_number}}</th>
-            <th><input ng-hide="userType" type="button" class="btn btn-primary" ng-click="takeSurvey(sList.id);" value = "Take Survey" /></th>
             </tr>
         </tbody>
     </table>
