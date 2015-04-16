@@ -12,14 +12,17 @@ index.controller( 'LoginController', ['$rootScope', '$scope', '$filter', '$http'
             if (data.id !== null) {
                 $rootScope.userID = data.id;
                 $rootScope.userName = data.name;
-                $rootScope.userType = data.type;
+                if (data.type == "Teacher") {
+                    $rootScope.userType = 1;
+                }
                 $rootScope.selectNav(2);
                 $rootScope.loggedIn = true;
                 $cookieStore.put("user", {
                     userID: $rootScope.userID,
                     userName: $rootScope.userName,
                     userType: $rootScope.userType,
-                    loggedIn: $rootScope.loggedIn
+                    loggedIn: $rootScope.loggedIn,
+                    selectedTab: $rootScope.tab
                 });
 
                 $location.path( '/survey' );

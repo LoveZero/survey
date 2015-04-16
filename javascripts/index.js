@@ -26,8 +26,14 @@ var index = angular.module('index', ['ui.bootstrap', 'ngRoute', 'ngGrid', 'ngCoo
                 
                 $location.path( '/' );
             }
+        } else {
+            $rootScope.userID = '';
+            $rootScope.userName = '';
+            $rootScope.userType = 0;
+            $rootScope.loggedIn = false;
+            $rootScope.tab = 1;
+            $location.path( '/' );
         }
-    
     }
      
     $rootScope.selectNav = function(setTab) {
@@ -35,7 +41,6 @@ var index = angular.module('index', ['ui.bootstrap', 'ngRoute', 'ngGrid', 'ngCoo
         $cookieStore.put("user", {
             selectedTab: $rootScope.tab,
         });
-/*         $cookies.selectedTab = $rootScope.tab; */
     }
     
     $rootScope.isSelected = function(checkTab){
@@ -43,7 +48,7 @@ var index = angular.module('index', ['ui.bootstrap', 'ngRoute', 'ngGrid', 'ngCoo
     };
     
     $rootScope.clearCookies = function(){
-        $cookies.user = undefined;
+        $cookies.user = '';
     };
     
     $rootScope.toSurveyList = function() {
