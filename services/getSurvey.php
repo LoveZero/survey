@@ -28,7 +28,7 @@ while ($stmt->fetch()) {
 		'name' => $name,
 		'subtext' => $subtext,
 		'type' => $type,
-		'subtype' => $subtype,
+		'subtype' => json_decode($subtype),
     ); 
 }
 

@@ -22,17 +22,18 @@ index.controller('ListController', ['$rootScope', '$scope', '$filter', '$http', 
         $location.path( '/newsurvey' );
     }
 	
-	$scope.takeSurvey = function (surveyID) {
-		$location.search('id', surveyID);
-		console.log($location.search());
+	$scope.takeSurvey = function (survey) {
+		$location.search('id', survey.id);
+        $location.search('title', survey.title);
+        $location.search('description', survey.description);
         $location.path( '/takesurvey' );
     }
 	
-	$scope.clickSurvey = function (id, userType) {
+	$scope.clickSurvey = function (survey, userType) {
         if (userType) {
-			$scope.getSummary(id);
+			$scope.getSummary(survey.id);
 		} else {
-			$scope.takeSurvey(id);
+			$scope.takeSurvey(survey);
 		}
     }
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2015 at 08:32 AM
+-- Generation Time: Apr 16, 2015 at 12:11 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -33,7 +33,19 @@ CREATE TABLE IF NOT EXISTS `question` (
   `subtext` varchar(4000) DEFAULT NULL,
   `type` varchar(100) NOT NULL,
   `subtype` varchar(4000) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `question`
+--
+
+INSERT INTO `question` (`id`, `survey_id`, `name`, `subtext`, `type`, `subtype`) VALUES
+(1, 2, 'DId you like Magic?', '', 'Multiple Choice', '[{"name":"Yes"},{"name":"No"}]'),
+(2, 4, 'Untitled question', '', 'Multiple Choice', '[{"name":"Option 1"}]'),
+(3, 4, 'Untitled question', '', 'Multiple Choice', '[{"name":"Option 1"}]'),
+(4, 5, 'Do you like ice cream?', '', 'Multiple Choice', '[{"name":"Yes"},{"name":"No"}]'),
+(5, 5, 'Which Ice cream stated below you like ?', 'You can choose multiple.', 'Checkboxes', '[{"name":"Chocolate"},{"name":"Vanilla"},{"name":"Mint"},{"name":"Yam"}]'),
+(6, 5, 'Please tell us why you like ice cream so much!', 'you can tell us anything!', 'Text', '');
 
 -- --------------------------------------------------------
 
@@ -47,14 +59,18 @@ CREATE TABLE IF NOT EXISTS `survey` (
   `title` varchar(100) NOT NULL,
   `description` varchar(4000) NOT NULL,
   `response_number` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `survey`
 --
 
 INSERT INTO `survey` (`id`, `user_id`, `title`, `description`, `response_number`) VALUES
-(1, 1, 'survey', 'survey', 0);
+(1, 1, 'survey', 'survey', 0),
+(2, 1, 'Magic survey', 'Magic', 0),
+(3, 1, 'adsdssddas', 'asdadsasd', 0),
+(4, 1, 'Untitled form', '', 0),
+(5, 1, 'Ice Cream Survey', 'A survey to collect data about ice creams', 0);
 
 -- --------------------------------------------------------
 
@@ -108,12 +124,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `survey`
 --
 ALTER TABLE `survey`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `user`
 --

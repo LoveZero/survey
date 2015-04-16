@@ -1,26 +1,47 @@
-
 <div ng-controller = "TakeSurveyController" class="takeSurvey">
     <h2>Take Survey</h2>
 	
-	<div class=""><div class="ss-form-heading">
-		<h1 class="" dir="ltr">Untitled form</h1>
-		<div class="ss-form-desc ss-no-ignore-whitespace" dir="ltr">asdasd</div></div>
+	<div class=""><div class="">
+		<h1 class="" dir="ltr">{{survey.title}}</h1>
+		<div class="" dir="ltr">{{survey.description}}</div></div>
 	</div>
+    
+    <br />
+    <br />
+    
 	<form>
-		<div class="">
+		<div class="" ng-repeat="question in survey.questions" >
 			<label>
-			<div class="">vxzvzvxvc</div>
-			<div class="">xczzcxc</div>
-			</label>
+			<div class="">{{$index + 1 + ") " + question.name}}</div>
+            </label>
+			<div class="tab">{{question.subtext}}</div>
+			
 
-			<ul class="">
-				<li class="radio">
+			<ul class="" ng-show="{{question.type == 'Multiple Choice'}}">
+				<li class="radio" ng-repeat="radio in question.subtype">
 					<label>
-						<input type="radio" name="" value="rfasd">
-						<span class="ss-choice-label">rfasd</span>
+						<input type="radio" name="" value="{{radio.name}}">
+						<span class="">{{radio.name}}</span>
 					</label>
+                    <br />
 				</li> 
 			</ul>
+            
+            <ul class="" ng-show="{{question.type == 'Checkboxes'}}">
+				<li class="checkbox" ng-repeat="checkbox in question.subtype">
+					<label>
+						<input type="checkbox" name="" value="{{checkbox.name}}">
+						<span class="">{{checkbox.name}}</span>
+					</label>
+                    <br />
+				</li> 
+			</ul>
+            
+            <div class="tab" ng-show="{{question.type == 'Text'}}">
+                <textarea class="resizable form-control" rows="2" type="textarea" ng-model="answer.name"></textarea>
+            </div>
+            
+            <br />
 		</div>
 	</form>
 </div>
