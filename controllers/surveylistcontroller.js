@@ -10,7 +10,6 @@ index.controller('ListController', ['$rootScope', '$scope', '$filter', '$http', 
             $scope.surveyList = data;
         })
         .error( function (data) {
-            //return error in login
         });
     }
     
@@ -39,6 +38,22 @@ index.controller('ListController', ['$rootScope', '$scope', '$filter', '$http', 
 
     $scope.getSummary = function (id) {
         $location.path('/summary').search('sid', id);
+    }
+    
+    $scope.removeSurvey = function(index, array){
+        if (confirm("Are you sure you want to remove \"" + array[index].title + "\"?") == true) {
+             $http({
+                url: SERVICE + 'removeSurvey.php',
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                data: array[index]
+            }).success ( function (data) {
+                array.splice(index, 1);
+                alert(data);
+            }).error( function (data) {
+                alert(data);
+            });
+        }
     }
     
     $scope.init();
