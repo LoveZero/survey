@@ -10,27 +10,27 @@
     <br />
     
 	<form>
-		<div class="" ng-repeat="question in survey.questions" >
+		<div class="" ng-repeat="question in survey.questions" ng-init="answerIndex = $index" >
 			<label>
-			<div class="">{{$index + 1 + ") " + question.name}}</div>
+			<div class="">{{answerIndex + 1 + ") " + question.name}}</div>
             </label>
 			<div class="tab">{{question.subtext}}</div>
 			
 
-			<ul class="" ng-show="{{question.type == 'Multiple Choice'}}">
+			<ul ng-show="{{question.type == 'Multiple Choice'}}">
 				<li class="radio" ng-repeat="radio in question.subtype">
 					<label>
-						<input type="radio" name="" value="{{radio.name}}">
+						<input type="radio" ng-model="answer[answerIndex].radio" name="{{'q' + (answerIndex + 1)}}" value="{{radio.name}}">
 						<span class="">{{radio.name}}</span>
 					</label>
                     <br />
 				</li> 
 			</ul>
             
-            <ul class="" ng-show="{{question.type == 'Checkboxes'}}">
-				<li class="checkbox" ng-repeat="checkbox in question.subtype">
+            <ul ng-show="{{question.type == 'Checkboxes'}}">
+				<li class="checkbox" ng-repeat="checkbox in question.subtype" ng-init="checkboxvalue = checkbox.name">
 					<label>
-						<input type="checkbox" name="" value="{{checkbox.name}}">
+						<input type="checkbox"  ng-model="answer[answerIndex].checkbox[checkboxvalue].selected" value="{{checkbox.name}}">
 						<span class="">{{checkbox.name}}</span>
 					</label>
                     <br />
@@ -38,11 +38,13 @@
 			</ul>
             
             <div class="tab" ng-show="{{question.type == 'Text'}}">
-                <textarea class="resizable form-control" rows="2" type="textarea" ng-model="answer.name"></textarea>
+                <textarea class="resizable form-control" rows="2" type="textarea" ng-model="answer[answerIndex].textbox">question.$index</textarea>
             </div>
             
             <br />
 		</div>
+		
+		<input type="submit" class="btn btn-primary" value="Submit" ng-click="submitAnswer(answer)"/>
 	</form>
 </div>
 
