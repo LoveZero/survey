@@ -11,14 +11,16 @@
             <tr>
             <th>Title</th>
             <th>Description</th>
-            <th>Total Taken</th>
+            <th ng-show="userType">Total Taken</th>
+            <th ng-show="!userType">Status</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="sList in surveyList" ng-click="clickSurvey(sList, userType)">
-            <th>{{sList.title}}</th>
-            <th>{{sList.description}}</th>
-            <th>{{sList.response_number}}<button ng-show = "userType" class="btnRemoveSurvey" ng-click="removeSurvey($index, surveyList); $event.stopPropagation();">Remove</button></th>
+                <th>{{sList.title}}</th>
+                <th>{{sList.description}}</th>
+                <th ng-show="userType">{{sList.response_number}}<button class="btnRemoveSurvey" ng-click="removeSurvey($index, surveyList); $event.stopPropagation();">Remove</button></th>
+                <th ng-show="!userType">{{sList.status}}</th>
             </tr>
         </tbody>
     </table>

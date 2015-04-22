@@ -23,7 +23,7 @@ index.controller('TakeSurveyController', ['$rootScope', '$scope', '$filter', '$h
         .success ( function (data) {
             $scope.survey.questions = data;
 			$.each ($scope.survey.questions, function ( index, value ) {
-				$scope.answer[index] = {};
+				$scope.answer[index] = {id:value.id};
 				if (value.type == 'Checkboxes') {
 					$scope.answer[index].checkbox = {};
 					$.each (value.subtype, function ( i, j ) {
@@ -38,7 +38,46 @@ index.controller('TakeSurveyController', ['$rootScope', '$scope', '$filter', '$h
     }
 	
 	$scope.submitAnswer = function (answer) {
-		console.log(answer);
+        var arrAnswer = [];
+        var objAnswer = {};
+        var checkBoxValue = [];
+        var strCheckBoxValue;
+        
+        angular.forEach(answer, function(eachAnswer, index) {
+            objAnswer = {};
+            checkBoxValue = [];
+            strCheckBoxValue = '';
+
+            if (Object.keys(eachAnswer)[1] == "checkbox") {
+                angular.forEach(eachAnswer.checkbox, function(checkbox, key) {
+                    if (checkbox.selected == true) {
+                        checkBoxValue.push(key);
+                    }
+                });
+                strCheckBoxValue = checkBoxValue.join(', ');
+                objAnswer['id'] = eachAnswer['id'];
+                objAnswer['description'] = strCheckBoxValue;
+            } else {
+                objAnswer['id'] = eachAnswer['id'];
+                objAnswer['description'] = (eachAnswer[Object.keys(eachAnswer)[1]]) ? eachAnswer[Object.keys(eachAnswer)[1]] : "";            
+            }
+            arrAnswer.push(objAnswer);
+        });
+
+        $http({
+            url: SERVICE + 'responseSurvey.php',
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            data: {surveyID: $scope.survey.id,
+                   userID: $rootScope.userID,
+                   answer: arrAnswer}
+        }).success ( function (data) {
+            alert(data);
+            $location.path( '/survey' );
+        }).error( function (data) {
+            alert(data);
+        });
+
 	}
 	
 	$scope.init();

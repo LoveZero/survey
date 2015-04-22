@@ -7,6 +7,11 @@ if (isset($_GET['user'])) {
 	$user_id = 0;
 }
 
+if (isset($_GET['userType'])) {
+	$user_type = $_GET["userType"];
+} else {
+	$user_type = 0;
+}
 $stmt = "
     SELECT 
         id,
@@ -17,7 +22,7 @@ $stmt = "
         survey 
 ";
 
-if ($user_id > 0) {
+if ($user_type > 0) {
 	$stmt .= 
 	"WHERE 
 	user_id = ?;";
@@ -42,6 +47,20 @@ while ($stmt->fetch()) {
     ); 
 }
 
+if ($user_type == 0) {
+    $select_survey_student_stmt = "SELECT survey_id FROM survey_student WHERE student_id = " . $user_id . " AND status = '1'";
+    $survey_status = $mysqli->query($select_survey_student_stmt);
+    foreach ($result as &$survey) {
+        foreach ($survey_status as $value) {
+            if ($survey['id'] == $value['survey_id']) {
+                $survey['status'] = "Done";
+                break 1;
+            } else {
+                $survey['status'] = "";
+            }
+        }
+    }
+}
 $result = json_encode($result);
 
 echo $result;

@@ -1,18 +1,18 @@
 <div ng-controller = "TakeSurveyController" class="takeSurvey">
     <h2>Take Survey</h2>
 	
-	<div class=""><div class="">
-		<h1 class="" dir="ltr">{{survey.title}}</h1>
-		<div class="" dir="ltr">{{survey.description}}</div></div>
-	</div>
+    <div>
+        <h1 dir="ltr">{{survey.title}}</h1>
+        <div dir="ltr">{{survey.description}}</div>
+    </div>
     
     <br />
     <br />
     
-	<form>
-		<div class="" ng-repeat="question in survey.questions" ng-init="answerIndex = $index" >
+	<form class="form-horizontal" role="form" ng-submit="submitAnswer(answer)">
+		<div class="form-group" ng-repeat="question in survey.questions" ng-init="answerIndex = $index" >
 			<label>
-			<div class="">{{answerIndex + 1 + ") " + question.name}}</div>
+			<div>{{answerIndex + 1 + ") " + question.name}}</div>
             </label>
 			<div class="tab">{{question.subtext}}</div>
 			
@@ -21,7 +21,7 @@
 				<li class="radio" ng-repeat="radio in question.subtype">
 					<label>
 						<input type="radio" ng-model="answer[answerIndex].radio" name="{{'q' + (answerIndex + 1)}}" value="{{radio.name}}">
-						<span class="">{{radio.name}}</span>
+						<span>{{radio.name}}</span>
 					</label>
                     <br />
 				</li> 
@@ -31,7 +31,7 @@
 				<li class="checkbox" ng-repeat="checkbox in question.subtype" ng-init="checkboxvalue = checkbox.name">
 					<label>
 						<input type="checkbox"  ng-model="answer[answerIndex].checkbox[checkboxvalue].selected" value="{{checkbox.name}}">
-						<span class="">{{checkbox.name}}</span>
+						<span>{{checkbox.name}}</span>
 					</label>
                     <br />
 				</li> 
@@ -44,7 +44,7 @@
             <br />
 		</div>
 		
-		<input type="submit" class="btn btn-primary" value="Submit" ng-click="submitAnswer(answer)"/>
+		<input type="submit" class="btn btn-primary" value="Submit"/>
 	</form>
 </div>
 

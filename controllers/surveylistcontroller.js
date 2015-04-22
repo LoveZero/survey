@@ -2,9 +2,8 @@ index.controller('ListController', ['$rootScope', '$scope', '$filter', '$http', 
     
     $scope.getList = function (userID, userType) {
 		var url = SERVICE + 'getList.php';
-		if (userType == 1) {
-			url += '?user=' + userID;
-		}
+        url += '?user=' + userID + '&userType=' + userType;
+
         $http.get (url)
         .success ( function (data) {
             $scope.surveyList = data;
@@ -32,7 +31,11 @@ index.controller('ListController', ['$rootScope', '$scope', '$filter', '$http', 
         if (userType) {
 			$scope.getSummary(survey.id);
 		} else {
-			$scope.takeSurvey(survey);
+            if (survey.status == "Done") {
+                alert("You have done this survey.");
+            } else {
+                $scope.takeSurvey(survey);
+            }
 		}
     }
 
