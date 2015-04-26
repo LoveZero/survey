@@ -29,7 +29,7 @@ if ($user_type > 0) {
 }
 $stmt = $mysqli->prepare($stmt);
 
-if ($user_id > 0) {
+if ($user_type > 0) {
 	$stmt->bind_param('i', $user_id);
 }
 
