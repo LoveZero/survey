@@ -47,7 +47,7 @@ index.controller('ListController', ['$rootScope', '$scope', '$filter', '$http', 
         if (confirm("Are you sure you want to remove \"" + array[index].title + "\"?") == true) {
              $http({
                 url: SERVICE + 'removeSurvey.php',
-                method: 'DELETE',
+                method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 data: array[index]
             }).success ( function (data) {
