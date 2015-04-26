@@ -56,8 +56,6 @@ if ($user_type == 0) {
             if ($survey['status'] != "Done") {
                 if ($survey['id'] == $value['survey_id']) {
                     $survey['status'] = "Done";
-                } else {
-                    $survey['status'] = "";
                 }
             }
         }
