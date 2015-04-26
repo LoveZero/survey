@@ -4,10 +4,12 @@ include 'dbConnection.php';
 
 $survey_id = $_GET["surveyID"];
 $answers = array();
-$$output['answer'] = array();
+$output['answers'] = array();
 $select_question_stmt = "SELECT id,name FROM question WHERE survey_id = " . $survey_id;
 
 $result = $mysqli->query($select_question_stmt);
+
+$question_id = "";
 
 foreach ($result as $value) {
     $question_id .= $value['id'] . ",";
