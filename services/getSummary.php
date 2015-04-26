@@ -11,7 +11,7 @@ $result = $mysqli->query($select_question_stmt);
 
 $question_id = "";
 
-foreach ($result as $value) {
+while($value = $result->fetch_array()){ 
     $question_id .= $value['id'] . ",";
     $output['questions'][] = $value['name'];
 }
