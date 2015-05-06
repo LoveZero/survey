@@ -19,8 +19,9 @@
             <tr ng-repeat="sList in surveyList" ng-click="clickSurvey(sList, userType)">
                 <th>{{sList.title}}</th>
                 <th>{{sList.description}}</th>
-                <th ng-show="userType">{{sList.response_number}}<button class="btnRemoveSurvey" ng-click="removeSurvey($index, surveyList); $event.stopPropagation();">Remove</button></th>
+                <th ng-show="userType == 2">{{sList.response_number}}<button class="btnRemoveSurvey" ng-click="removeSurvey($index, surveyList); $event.stopPropagation();">Remove</button></th>
                 <th ng-show="!userType">{{sList.status}}</th>
+                <th ng-show="userType == 1" ng-bind="sList.response_number"></th>
             </tr>
         </tbody>
     </table>

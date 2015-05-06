@@ -38,9 +38,6 @@ var index = angular.module('index', ['ui.bootstrap', 'ngRoute', 'ngGrid', 'ngCoo
      
     $rootScope.selectNav = function(setTab) {
         $rootScope.tab = setTab;
-        $cookieStore.put("user", {
-            selectedTab: $rootScope.tab,
-        });
     }
     
     $rootScope.isSelected = function(checkTab){
@@ -58,6 +55,9 @@ var index = angular.module('index', ['ui.bootstrap', 'ngRoute', 'ngGrid', 'ngCoo
     $rootScope.init();
 }).config(['$routeProvider', function($routeProvider) {
 		$routeProvider.when('/', {
+			templateUrl: 'views/home.html'
+		}),		
+		$routeProvider.when('/main', {
 			templateUrl: 'views/login.html'
 		}),		
 		$routeProvider.when('/survey', { 

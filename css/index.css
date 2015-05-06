@@ -209,10 +209,18 @@ code {
     border-left: 2px rgb(150, 150, 150) solid;
     border-right: 2px rgb(150, 150, 150) solid;
 }
+.loginClip {
+    height: 400px;
+    background: url(../img/devices.png) no-repeat top right;
+}
 
 @media (max-width:767px){
     .subType {
         margin-left: 15px;
+    }
+    
+    .loginClip {
+        background: none;
     }
 }
 

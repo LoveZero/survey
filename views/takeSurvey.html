@@ -20,7 +20,7 @@
 			<ul ng-show="{{question.type == 'Multiple Choice'}}">
 				<li class="radio" ng-repeat="radio in question.subtype">
 					<label>
-						<input type="radio" ng-model="answer[answerIndex].radio" name="{{'q' + (answerIndex + 1)}}" value="{{radio.name}}">
+						<input type="radio" ng-model="answer[answerIndex].radio" name="{{'q' + (answerIndex + 1)}}" value="{{radio.name}}"  ng-required="true">
 						<span>{{radio.name}}</span>
 					</label>
                     <br />
@@ -38,7 +38,7 @@
 			</ul>
             
             <div class="tab" ng-show="{{question.type == 'Text'}}">
-                <textarea class="resizable form-control" rows="2" type="textarea" ng-model="answer[answerIndex].textbox">question.$index</textarea>
+                <textarea class="resizable form-control" rows="2" type="textarea" ng-model="answer[answerIndex].textbox" ng-required="question.type == 'Text'">question.$index</textarea>
             </div>
             
             <br />
