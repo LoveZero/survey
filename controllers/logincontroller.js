@@ -14,6 +14,8 @@ index.controller( 'LoginController', ['$rootScope', '$scope', '$filter', '$http'
                 $rootScope.userName = data.name;
                 if (data.type == "Teacher") {
                     $rootScope.userType = 1;
+                } else if (data.type == "Admin") {
+                    $rootScope.userType = 2;
                 }
                 $rootScope.selectNav(2);
                 $rootScope.loggedIn = true;

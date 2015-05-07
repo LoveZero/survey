@@ -130,6 +130,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `type`) VALUES
+(4, 'Admin', 'admin@survey.com', 'admin123', 'Admin'),
 (5, 'Dr. Lim Wei Ching', 'teacher@survey.com', 'survey', 'Teacher'),
 (6, 'wong', 'ziquan1016@hotmail.com', 'disney0904', 'Student'),
 (7, 'wong', 'ziquan1016@hotmai.com', 'disney0904', 'Teacher'),

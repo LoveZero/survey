@@ -22,14 +22,14 @@ $stmt = "
         survey 
 ";
 
-if ($user_type > 0) {
+if ($user_type == 1) {
 	$stmt .= 
 	"WHERE 
 	user_id = ?;";
 }
 $stmt = $mysqli->prepare($stmt);
 
-if ($user_type > 0) {
+if ($user_type == 1) {
 	$stmt->bind_param('i', $user_id);
 }
 
