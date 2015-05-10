@@ -20,7 +20,7 @@
 			<ul ng-show="{{question.type == 'Multiple Choice'}}">
 				<li class="radio" ng-repeat="radio in question.subtype">
 					<label>
-						<input type="radio" ng-model="answer[answerIndex].radio" name="{{'q' + (answerIndex + 1)}}" value="{{radio.name}}"  ng-required="true">
+						<input type="radio" ng-model="answer[answerIndex].radio" name="{{'q' + (answerIndex + 1)}}" value="{{radio.name}}"  ng-required="question.type == 'Multiple Choice'">
 						<span>{{radio.name}}</span>
 					</label>
                     <br />
