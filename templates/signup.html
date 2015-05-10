@@ -16,7 +16,7 @@
     <div class="form-group">
         <label for="inputName" class="col-lg-2 control-label">Name</label>
         <div class="col-lg-4">
-            <input type="text" class="form-control" id="inputName" placeholder="Name" ng-model="signup.name" required>
+            <input type="text" pattern="[A-Za-z]{1,}" class="form-control" id="inputName" placeholder="Name" ng-model="signup.name" required>
         </div>
     </div>
     <div class="form-group">
